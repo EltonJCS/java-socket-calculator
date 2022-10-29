@@ -35,7 +35,7 @@ O sistema é composto de um cliente que encaminha as operações via sockets par
   9. O cliente armazena a resposta do servidor e imprime o resultado.
   ```
   String ans = dis.readUTF();
-  System.out.println("Answer=" + ans);
+  System.out.println("Resultado= " + res);
   ```
 
 ## Protocolo
