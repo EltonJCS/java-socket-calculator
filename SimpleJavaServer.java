@@ -4,8 +4,6 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.StringTokenizer;
 
-import static java.lang.Float.isNaN;
-
 public class SimpleJavaServer {
 
     public static void main(String[] args) 	{
@@ -18,35 +16,28 @@ public class SimpleJavaServer {
             DataOutputStream dos = new DataOutputStream(socket.getOutputStream());
 
             while (true) {
-                float num1 = 0f;
-                float num2 = 0f;
+                float num1;
+                float num2;
+                float result = 0f;
                 String operator;
 
-                //Espera entrada de dados do cliente
+                //Espera a entrada de dados do cliente
                 String input = dis.readUTF();
-                if(input.equals("bye")) {
+                if(input.equals("exit")) {
                     break;
                 }
 
                 System.out.println("Equação: " + input);
 
-                //StringTokenizer separa operando de operador
+                //Separa a entrada do cliente em tokens
                 StringTokenizer tokenizer = new StringTokenizer(input);
 
-                do{
-                    num1 = Float.parseFloat(tokenizer.nextToken());
-                    operator = tokenizer.nextToken();
-                    num2 = Float.parseFloat(tokenizer.nextToken());
-                    if (!isNaN(num1)){
-                        System.out.println("Operando não é um número!");
-                        num1 = Float.parseFloat(tokenizer.nextToken());
-                        operator = tokenizer.nextToken();
-                        num2 = Float.parseFloat(tokenizer.nextToken());
-                    }
-                } while (isNaN(num1) || isNaN(num2));
+                //Armazena os tokens nas variáveis correspodentes
+                num1 = Float.parseFloat(tokenizer.nextToken());
+                operator = tokenizer.nextToken();
+                num2 = Float.parseFloat(tokenizer.nextToken());
 
-                float result = 0f;
-
+                //Realiza as operações com base no operador informado
                 switch (operator) {
                     case "+" -> result = num1 + num2;
                     case "-" -> result = num1 - num2;
