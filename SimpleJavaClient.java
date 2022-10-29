@@ -42,8 +42,8 @@ public class SimpleJavaClient {
                 dos.writeUTF(input);
 
                 //Armazena a resposta do servidor e mostra ao cliente
-                String ans = dis.readUTF();
-                System.out.println("Answer=" + ans);
+                String res = dis.readUTF();
+                System.out.println("Resultado= " + res);
             }
         }
         catch (Exception err) {
