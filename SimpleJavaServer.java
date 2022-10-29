@@ -32,7 +32,7 @@ public class SimpleJavaServer {
                 //Separa a entrada do cliente em tokens
                 StringTokenizer tokenizer = new StringTokenizer(input);
 
-                //Armazena os tokens nas variáveis correspodentes
+                //Armazena os tokens nas variáveis correspondentes
                 num1 = Float.parseFloat(tokenizer.nextToken());
                 operator = tokenizer.nextToken();
                 num2 = Float.parseFloat(tokenizer.nextToken());
